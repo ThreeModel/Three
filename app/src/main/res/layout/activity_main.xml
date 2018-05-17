@@ -6,10 +6,11 @@
     tools:context=".view.activity.MainActivity">
 
 
-    <ImageView
-        android:src="@mipmap/ic_launcher"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+<com.hjm.bottomtabbar.BottomTabBar
+    android:id="@+id/btb"
+    android:background="#ccc"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></com.hjm.bottomtabbar.BottomTabBar>
 
 
 
