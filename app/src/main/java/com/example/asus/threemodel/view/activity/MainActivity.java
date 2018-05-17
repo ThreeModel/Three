@@ -1,5 +1,6 @@
 package com.example.asus.threemodel.view.activity;
 
+import android.util.Log;
 import android.view.View;
 
 import com.example.asus.threemodel.R;
@@ -22,6 +23,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
 
     @Override
     View getChildView() {
+        Log.e( "getChildView: ","hahaha" );
         return View.inflate(this,R.layout.activity_main,null);
     }
 
