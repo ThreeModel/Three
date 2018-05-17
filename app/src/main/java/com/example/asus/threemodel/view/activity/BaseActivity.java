@@ -14,7 +14,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     private P presenter;
     private FrameLayout fl;
-    private TextView tv;
+   public TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

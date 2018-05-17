@@ -4,14 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.activity.MainActivity">
-
-
 <com.hjm.bottomtabbar.BottomTabBar
     android:id="@+id/btb"
     android:background="#ccc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"></com.hjm.bottomtabbar.BottomTabBar>
-
-
-
 </RelativeLayout>

@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override
                     public void onTabChange(int position, String name) {
-
+                            tv.setText(name);
                     }
                 });
     }
@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
 
     @Override
     String getTitleText() {
-        return "发现";
+        return "首页";
     }
 
 
