@@ -36,7 +36,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     abstract void initData();
     abstract View getChildView();
     abstract P setPresenter();
-    abstract String getTitleText();
 
 
 
@@ -44,7 +43,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         fl = findViewById(R.id.base_frameLayout);
         fl.addView(getChildView());
         tv = findViewById(R.id.base_title);
-        tv.setText(getTitleText());
     }
 
 

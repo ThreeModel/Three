@@ -9,7 +9,7 @@ public class BaseModel {
 
     public void getJson(String url, final IMainPresenter iMainPresenter) {
 
-        ViseHttp.GET(url).request(new ACallback<String>() {
+        ViseHttp.GET().suffixUrl(url).request(new ACallback<String>() {
             @Override
             public void onSuccess(String data) {
                 iMainPresenter.onSuccess(data);

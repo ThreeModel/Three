@@ -10,12 +10,20 @@ import android.view.ViewGroup;
 
 import com.example.asus.threemodel.R;
 
-public class SpecialFragment extends Fragment{
-    @Nullable
+public class SpecialFragment extends BaseFragment{
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = View.inflate(getContext(), R.layout.special_frament, null);
-        return view;
+    int setChildView() {
+        return R.layout.special_frament;
+    }
+
+    @Override
+    void initView() {
+
+    }
+
+    @Override
+    void initData() {
 
     }
 }

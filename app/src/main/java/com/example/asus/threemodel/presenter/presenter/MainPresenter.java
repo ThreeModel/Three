@@ -1,6 +1,8 @@
 package com.example.asus.threemodel.presenter.presenter;
 
 
+import android.util.Log;
+
 import com.example.asus.threemodel.model.bean.MainBean;
 import com.example.asus.threemodel.presenter.inter.IMainPresenter;
 import com.example.asus.threemodel.view.inter.IMainView;
@@ -20,8 +22,9 @@ public class MainPresenter extends BasePresenter<IMainView> implements IMainPres
 
     @Override
     public void onSuccess(String data) {
-        MainBean mainBean = new Gson().fromJson(data, MainBean.class);
-        getView().onSuccess(mainBean);
+        Log.e("onSuccess: ",data );
+       /* MainBean mainBean = new Gson().fromJson(data, MainBean.class);
+        getView().onSuccess(mainBean);*/
     }
 
     @Override
