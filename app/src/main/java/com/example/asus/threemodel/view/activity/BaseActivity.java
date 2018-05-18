@@ -22,7 +22,10 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         setContentView(R.layout.activity_base);
         initSelfView();
         presenter = setPresenter();
-        presenter.attachView(this);
+        if (presenter != null){
+            presenter.attachView(this);
+        }
+
         initData();
         initView();
 
@@ -49,7 +52,10 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.detachView();
+        if (presenter != null){
+            presenter.detachView();
+        }
+
     }
 
 

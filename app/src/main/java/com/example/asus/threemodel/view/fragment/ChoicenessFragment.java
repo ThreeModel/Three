@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.asus.threemodel.R;
 import com.example.asus.threemodel.model.bean.ResultBean;
+import com.example.asus.threemodel.presenter.presenter.MainPresenter;
 import com.example.asus.threemodel.view.adapter.MainRecyclerAdapter;
 import com.example.asus.threemodel.view.adapter.RecyclerViewItemClickListener;
 import com.example.asus.threemodel.view.costom.BannerImageLoder;
@@ -59,8 +60,8 @@ public class ChoicenessFragment extends Fragment implements View.OnClickListener
     }
 
     private void initData() {
-//        MainPresenter presenter = new MainPresenter();
-//        presenter.getJson("front/homePageApi/homePage.do");
+        MainPresenter presenter = new MainPresenter();
+        presenter.getJson("front/homePageApi/homePage.do");
     }
 
     private void initView() {

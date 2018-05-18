@@ -38,10 +38,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                 });
     }
 
-    @Override
-    void initData() {
-        getPresenter().getJson("front/homePageApi/homePage.do");
-    }
+
 
     @Override
     View getChildView() {
@@ -50,18 +47,15 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
 
     @Override
     MainPresenter setPresenter() {
-        return new MainPresenter();
-    }
-
-
-
-    @Override
-    public void onSuccess(MainBean mainBean) {
-
+        return null;
     }
 
     @Override
-    public void onErr(int code, String errMsg) {
+    void initData() {}
 
-    }
+    @Override
+    public void onSuccess(MainBean mainBean) {}
+
+    @Override
+    public void onErr(int code, String errMsg) {}
 }
