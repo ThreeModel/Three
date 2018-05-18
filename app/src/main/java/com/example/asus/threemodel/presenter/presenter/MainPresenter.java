@@ -26,6 +26,7 @@ public class MainPresenter extends BasePresenter<IMainView> implements IMainPres
         Log.e("onSuccess: ",data );
        /* MainBean mainBean = new Gson().fromJson(data, MainBean.class);
         getView().onSuccess(mainBean);*/
+        
     }
 
     @Override
