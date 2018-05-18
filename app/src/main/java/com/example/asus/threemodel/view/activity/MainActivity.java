@@ -45,7 +45,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
 
     @Override
     View getChildView() {
-        Log.e( "getChildView: ","hahaha" );
         return View.inflate(this,R.layout.activity_main,null);
     }
 
