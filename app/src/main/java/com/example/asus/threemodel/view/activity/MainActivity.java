@@ -54,7 +54,9 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
     void initData() {}
 
     @Override
-    public void onSuccess(MainBean mainBean) {}
+    public void onSuccess(MainBean mainBean) {
+
+    }
 
     @Override
     public void onErr(int code, String errMsg) {}

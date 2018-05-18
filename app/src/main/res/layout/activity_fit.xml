@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_blue"
     tools:context=".view.activity.FitActivity">
     <RelativeLayout
+        android:id="@+id/my_shezhi_zhi"
         android:layout_width="match_parent"
         android:background="#f00"
         android:layout_height="50dp">
 
         <ImageView
+            android:id="@+id/my_shezhi_fanhui"
             android:layout_centerVertical="true"
             android:src="@drawable/back"
             android:layout_width="30dp"
@@ -27,6 +30,111 @@
             />
 
 
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/my_shezhi_zhi"
+        android:id="@+id/my_shezhi_tuijian"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="推荐给好友"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/right"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </RelativeLayout>
+    <View
+        android:layout_below="@+id/my_shezhi_tuijian"
+
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#f00"/>
+
+
+    <RelativeLayout
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/my_shezhi_tuijian"
+        android:id="@+id/my_shezhi_qingli"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清理缓存"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/right"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/my_shezhi_qingli"
+        android:id="@+id/my_shezhi_tui_guanyu"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="关于我们"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/right"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+    </RelativeLayout>
+    <View
+        android:layout_below="@+id/my_shezhi_tui_guanyu"
+
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#f00"/>
+
+
+    <RelativeLayout
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/my_shezhi_tui_guanyu"
+        android:id="@+id/my_shezhi_jianyi"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="建议反馈"
+            android:textSize="25dp"
+            android:textColor="#fff"/>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/right"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
     </RelativeLayout>
 
 </RelativeLayout>
