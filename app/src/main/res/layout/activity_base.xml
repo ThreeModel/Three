@@ -4,21 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.activity.BaseActivity">
-    
+
     <TextView
         android:id="@+id/base_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ff8000"
         android:gravity="center"
         android:textColor="#fff"
         android:textSize="18dp"
-        android:textStyle="bold"
-        android:background="#ff8000"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
-    
+        android:textStyle="bold" />
+
     <FrameLayout
         android:id="@+id/base_frameLayout"
-        android:layout_below="@id/base_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@id/base_title"></FrameLayout>
 
 </RelativeLayout>

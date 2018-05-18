@@ -1,15 +1,12 @@
 package com.example.asus.threemodel.presenter.presenter;
 
 
-import com.example.asus.threemodel.model.bean.MainBean;
+import com.example.asus.threemodel.model.bean.ResultBean;
 import com.example.asus.threemodel.presenter.inter.IMainPresenter;
 import com.example.asus.threemodel.view.inter.IMainView;
 import com.google.gson.Gson;
 
 public class MainPresenter extends BasePresenter<IMainView> implements IMainPresenter {
-
-
-
 
 
     @Override
@@ -20,8 +17,8 @@ public class MainPresenter extends BasePresenter<IMainView> implements IMainPres
 
     @Override
     public void onSuccess(String data) {
-        MainBean mainBean = new Gson().fromJson(data, MainBean.class);
-        getView().onSuccess(mainBean);
+        ResultBean resultBean = new Gson().fromJson(data, ResultBean.class);
+        getView().onSuccess(resultBean);
     }
 
     @Override

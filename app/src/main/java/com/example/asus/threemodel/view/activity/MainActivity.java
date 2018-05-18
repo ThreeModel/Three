@@ -25,10 +25,10 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                 .setFontSize(12)
                 .setTabPadding(4, 6, 10)
                 .setChangeColor(Color.RED, Color.GRAY)
-                .addTabItem("首页",R.drawable.found_select,R.drawable.found,ChoicenessFragment.class)
-                .addTabItem("西瓜视频",R.drawable.special_select,R.drawable.special,SpecialFragment.class)
-                .addTabItem("微头条",R.drawable.fancy_select,R.drawable.fancy,DiscoverFrament.class)
-                .addTabItem("登录",R.drawable.my_select,R.drawable.my,MyFrament.class)
+                .addTabItem("精选",R.drawable.found_select,R.drawable.found,ChoicenessFragment.class)
+                .addTabItem("专题",R.drawable.special_select,R.drawable.special,SpecialFragment.class)
+                .addTabItem("发现",R.drawable.fancy_select,R.drawable.fancy,DiscoverFrament.class)
+                .addTabItem("我的",R.drawable.my_select,R.drawable.my,MyFrament.class)
                 .isShowDivider(true)
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override

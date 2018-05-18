@@ -1,10 +1,7 @@
 package com.example.asus.threemodel.view.inter;
 
-import com.example.asus.threemodel.model.bean.BaseBean;
-
-public interface IMainView<T extends BaseBean> extends IBaseView{
-
-    void onSuccess(T t);
+public interface IMainView<T> extends IBaseView{
+    void onSuccess(T object);
     void onErr(int code,String errMsg);
 
 }

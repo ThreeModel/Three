@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.asus.threemodel.view.costom.ObservableScrollView
+        android:id="@+id/jingxuan_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:scrollbars="none">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                /* 轮播图 高：500px 宽：720px */
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="400px"
+                    app:delay_time="2500"
+                    app:image_scale_type="fit_xy"></com.youth.banner.Banner>
+
+                <RelativeLayout
+                    android:layout_width="500px"
+                    android:layout_height="80px"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="49dp"
+                    android:background="@drawable/search_style">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/fancy" />
+
+                    /* 跑马灯 */
+
+                    <com.gongwen.marqueen.SimpleMarqueeView
+                        android:id="@+id/simpleMarqueeView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="50dp"
+                        android:flipInterval="2500"
+                        android:inAnimation="@anim/in_right"
+                        android:outAnimation="@anim/out_left"
+                        app:marqueeAnimDuration="2000"
+                        app:smvTextColor="#fff"
+                        app:smvTextEllipsize="end"
+                        app:smvTextGravity="center_vertical"
+                        app:smvTextSingleLine="true"
+                        app:smvTextSize="15sp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="GO"
+                        android:textColor="#fff" />
+
+
+                </RelativeLayout>
+
+
+                /* 精彩推荐 */
+
+                <RelativeLayout
+                    android:id="@+id/r1"
+                    android:layout_width="match_parent"
+                    android:layout_height="88px"
+                    android:layout_below="@id/banner">
+
+                    <View
+                        android:layout_width="10px"
+                        android:layout_height="39px"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="13px"
+                        android:background="#669900" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="30px"
+                        android:layout_marginLeft="26px"
+                        android:text="精彩推荐"
+                        android:textColor="#fff"
+                        android:textSize="26px" />
+                </RelativeLayout>
+
+                /* 视频展示列表 */
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/r1"></android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+        </ScrollView>
+    </com.example.asus.threemodel.view.costom.ObservableScrollView>
+
+    <RelativeLayout
+        android:id="@+id/jingxuan_titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/tabBarColor">
+
+        <TextView
+            android:id="@+id/jingxuan_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:text="精选"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
