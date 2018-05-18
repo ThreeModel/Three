@@ -38,35 +38,24 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                 });
     }
 
-    @Override
-    void initData() {
-        getPresenter().onSuccess("");
-    }
+
 
     @Override
     View getChildView() {
-        Log.e( "getChildView: ","hahaha" );
         return View.inflate(this,R.layout.activity_main,null);
     }
 
     @Override
     MainPresenter setPresenter() {
-        return new MainPresenter();
+        return null;
     }
 
     @Override
-    String getTitleText() {
-        return "首页";
-    }
-
+    void initData() {}
 
     @Override
-    public void onSuccess(MainBean mainBean) {
-
-    }
+    public void onSuccess(MainBean mainBean) {}
 
     @Override
-    public void onErr(int code, String errMsg) {
-
-    }
+    public void onErr(int code, String errMsg) {}
 }
