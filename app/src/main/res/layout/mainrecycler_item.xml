@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/recycler_r1"
+        android:layout_width="678px"
+        android:layout_height="320px"
+        android:layout_centerInParent="true"
+        android:background="#70FFFFFF">
+
+        <ImageView
+            android:id="@+id/main_recycler_img"
+            android:layout_width="668px"
+            android:layout_height="300px"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/my_bg_colorful" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55px"
+        android:layout_below="@id/recycler_r1">
+
+        <TextView
+            android:id="@+id/main_recycler_Videoname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="#fff"
+            android:text="老无所依"
+            android:textSize="24px" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
