@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.asus.threemodel.R;
-import com.example.asus.threemodel.model.bean.MainBean;
 import com.example.asus.threemodel.presenter.presenter.MainPresenter;
 import com.example.asus.threemodel.view.fragment.ChoicenessFragment;
 import com.example.asus.threemodel.view.fragment.DiscoverFrament;
@@ -14,7 +13,7 @@ import com.example.asus.threemodel.view.fragment.SpecialFragment;
 import com.example.asus.threemodel.view.inter.IMainView;
 import com.hjm.bottomtabbar.BottomTabBar;
 
-public class MainActivity extends BaseActivity<MainPresenter> implements IMainView<MainBean> {
+public class MainActivity extends BaseActivity<MainPresenter> implements IMainView {
 
 
     @Override
@@ -25,7 +24,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                 .setFontSize(12)
                 .setTabPadding(4, 6, 10)
                 .setChangeColor(Color.RED, Color.GRAY)
-                .addTabItem("精选",R.drawable.found_select,R.drawable.found,ChoicenessFragment.class)
+                .addTabItem("精选", R.drawable.found_select,R.drawable.found,ChoicenessFragment.class)
                 .addTabItem("专题",R.drawable.special_select,R.drawable.special,SpecialFragment.class)
                 .addTabItem("发现",R.drawable.fancy_select,R.drawable.fancy,DiscoverFrament.class)
                 .addTabItem("我的",R.drawable.my_select,R.drawable.my,MyFrament.class)
@@ -40,22 +39,34 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
 
 
 
+
+
+    @Override
+    void initData() {
+    }
+
     @Override
     View getChildView() {
+        Log.e( "getChildView: ","hahaha" );
         return View.inflate(this,R.layout.activity_main,null);
     }
 
     @Override
     MainPresenter setPresenter() {
-        return null;
+        return new MainPresenter(this);
+    }
+
+
+
+
+    @Override
+    public void onSuccess(String mainBean) {
+
     }
 
     @Override
-    void initData() {}
+    public void onErr(int code, String errMsg) {
 
-    @Override
-    public void onSuccess(MainBean mainBean) {}
+    }
 
-    @Override
-    public void onErr(int code, String errMsg) {}
 }

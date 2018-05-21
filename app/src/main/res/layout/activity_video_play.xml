@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.VideoPlayActivity">
+
+    <com.dl7.player.media.IjkPlayerView
+        android:id="@+id/video_ijk"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"/>
+
+    <android.support.design.widget.TabLayout
+        android:layout_below="@id/video_ijk"
+        android:id="@+id/video_tab"
+        app:tabIndicatorColor="#f00"
+        app:tabSelectedTextColor="#f00"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:layout_below="@id/video_tab"
+        android:id="@+id/video_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
+
+</RelativeLayout>

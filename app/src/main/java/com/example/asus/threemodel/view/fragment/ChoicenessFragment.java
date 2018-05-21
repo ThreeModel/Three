@@ -1,5 +1,6 @@
 package com.example.asus.threemodel.view.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import com.example.asus.threemodel.R;
 import com.example.asus.threemodel.model.bean.ResultBean;
 import com.example.asus.threemodel.presenter.presenter.MainPresenter;
+import com.example.asus.threemodel.view.activity.VideoPlayActivity;
 import com.example.asus.threemodel.view.adapter.MainRecyclerAdapter;
 import com.example.asus.threemodel.view.adapter.RecyclerViewItemClickListener;
 import com.example.asus.threemodel.view.costom.BannerImageLoder;
@@ -26,15 +28,17 @@ import com.example.asus.threemodel.view.costom.ObservableScrollView;
 import com.example.asus.threemodel.view.inter.IMainView;
 import com.gongwen.marqueen.SimpleMF;
 import com.gongwen.marqueen.SimpleMarqueeView;
+import com.google.gson.Gson;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
+import com.youth.banner.listener.OnBannerClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.view.View.inflate;
 
-public class ChoicenessFragment extends Fragment implements View.OnClickListener, IMainView<ResultBean> {
+public class ChoicenessFragment extends Fragment implements View.OnClickListener, IMainView {
 
 
     private View view;
@@ -46,7 +50,6 @@ public class ChoicenessFragment extends Fragment implements View.OnClickListener
     private List<ResultBean.RetBean.ListBean.ChildListBean> recyclers = new ArrayList<>();
     private RelativeLayout relativeLayout;
     private ObservableScrollView observableScrollView;
-    private final String TAG_MARGIN_ADDED = "marginAdded";
     private TextView jingxuan_title;
 
     @Nullable
@@ -81,6 +84,16 @@ public class ChoicenessFragment extends Fragment implements View.OnClickListener
         banner.setBannerStyle(BannerConfig.NUM_INDICATOR);
         banner.setImageLoader(new BannerImageLoder());
         banner.isAutoPlay(true);
+        banner.setOnBannerClickListener(new OnBannerClickListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                Intent intent = new Intent(getActivity(), VideoPlayActivity.class);
+                intent.putExtra("loadUrl", recyclers.get(position).getLoadURL().toString());
+                intent.putExtra("shareUrl", recyclers.get(position).getShareURL().toString());
+                intent.putExtra("slt", recyclers.get(position).getPic().toString());
+                startActivity(intent);
+            }
+        });
     }
 
     /**
@@ -113,15 +126,13 @@ public class ChoicenessFragment extends Fragment implements View.OnClickListener
         });
     }
 
-
-    /**
-     * @param resultBean
-     */
     @Override
-    public void onSuccess(ResultBean resultBean) {
+    public void onSuccess(String json) {
         /**
          * 搜索展示  还要进行点击进行搜索任务
          */
+
+        ResultBean resultBean = new Gson().fromJson(json, ResultBean.class);
         List<ResultBean.RetBean.ListBean> list = resultBean.getRet().getList();
         for (int i = 0; i < list.size(); i++) {
             List<ResultBean.RetBean.ListBean.ChildListBean> childList = resultBean.getRet().getList().get(i).getChildList();
@@ -151,10 +162,17 @@ public class ChoicenessFragment extends Fragment implements View.OnClickListener
 
         //  列表展示数据
         MainRecyclerAdapter adapter = new MainRecyclerAdapter(getActivity(), recyclers);
+
         recyclerView.setAdapter(adapter);
+
         adapter.setRecyclerClickListener(new RecyclerViewItemClickListener() {
             @Override
             public void onRecyclerItemClick(int position) {
+                Intent intent = new Intent(getActivity(), VideoPlayActivity.class);
+                intent.putExtra("loadUrl", recyclers.get(position).getLoadURL().toString());
+                intent.putExtra("shareUrl", recyclers.get(position).getShareURL().toString());
+                intent.putExtra("slt", recyclers.get(position).getPic().toString());
+                startActivity(intent);
             }
         });
     }

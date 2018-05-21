@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#f11123"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/jianjie_title"
-        android:textSize="50dp"
-        android:text="32332"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_colorful" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <com.example.asus.threemodel.view.costom.StretchyTextView
+                android:id="@+id/jianjie_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.example.asus.threemodel.view.costom.StretchyTextView>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="20px"
+                    android:layout_height="40px"
+                    android:layout_marginLeft="20dp"
+                    android:background="@color/tabBarColor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="精彩推荐" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <com.example.asus.threemodel.view.costom.MyGridView
+                android:id="@+id/jianjie_gridview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:numColumns="3"></com.example.asus.threemodel.view.costom.MyGridView>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

@@ -1,12 +1,12 @@
 package com.example.asus.threemodel.view.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
 import com.example.asus.threemodel.R;
 import com.example.asus.threemodel.model.bean.ResultBean;
 
@@ -34,7 +34,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerViewHo
     @Override
     public void onBindViewHolder(@NonNull MainRecyclerViewHolder holder, final int position) {
         holder.name.setText(list.get(position).getTitle());
-        Glide.with(context).load(list.get(position).getPic().toString()).into(holder.img);
+        holder.img.setImageURI(Uri.parse(list.get(position).getPic()));
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

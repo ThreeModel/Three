@@ -14,7 +14,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     private P presenter;
     private FrameLayout fl;
-   public TextView tv;
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +22,11 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         setContentView(R.layout.activity_base);
         initSelfView();
         presenter = setPresenter();
-        if (presenter != null){
+        if (presenter != null) {
             presenter.attachView(this);
         }
-
-        initData();
         initView();
-
+        initData();
     }
 
     public P getPresenter() {
@@ -36,10 +34,12 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     }
 
     abstract void initView();
-    abstract void initData();
-    abstract View getChildView();
-    abstract P setPresenter();
 
+    abstract void initData();
+
+    abstract View getChildView();
+
+    abstract P setPresenter();
 
 
     private void initSelfView() {
@@ -52,12 +52,10 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (presenter != null){
+        if (presenter != null) {
             presenter.detachView();
         }
 
     }
-
-
 
 }
