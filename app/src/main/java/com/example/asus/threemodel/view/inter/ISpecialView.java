@@ -1,4 +1,4 @@
 package com.example.asus.threemodel.view.inter;
 
-interface ISpecialView {
+public interface ISpecialView {
 }

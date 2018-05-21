@@ -1,21 +1,15 @@
 package com.example.asus.threemodel.view.fragment;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.asus.threemodel.R;
 import com.example.asus.threemodel.application.MyApplication;
-import com.example.asus.threemodel.model.bean.BaseBean;
 import com.example.asus.threemodel.model.bean.SpecialBean;
+import com.example.asus.threemodel.presenter.presenter.SpecialPresenter;
+import com.example.asus.threemodel.view.inter.ISpecialView;
 
-public class SpecialFragment extends BaseFragment<SpecialBean> {
+public class SpecialFragment extends BaseFragment<SpecialBean> implements ISpecialView{
 
     private RecyclerView rv;
 
@@ -31,7 +25,9 @@ public class SpecialFragment extends BaseFragment<SpecialBean> {
     }
 
     @Override
-    void initData() {}
+    void initData() {
+        new SpecialPresenter(this);
+    }
 
     @Override
     void onSuccess(SpecialBean specialBean) {}
