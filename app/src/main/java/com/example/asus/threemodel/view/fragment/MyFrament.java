@@ -63,10 +63,11 @@ public class MyFrament extends Fragment implements View.OnClickListener{
                 Toast.makeText(getContext(), "历史",Toast.LENGTH_LONG).show();
                 break;
             case R.id.my_shezhi_huancun  :
-                Toast.makeText(getContext(), "储存",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "静请期待",Toast.LENGTH_LONG).show();
                 break;
             case R.id.my_shezhi_shoucang:
-                Toast.makeText(getContext(), "收藏",Toast.LENGTH_LONG).show();
+               //点击跳转，跳转到一个收藏界面
+
                 break;
             case R.id.my_shezhi_zhuti:
                 Toast.makeText(getContext(), "主题",Toast.LENGTH_LONG).show();
