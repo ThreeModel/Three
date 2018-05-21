@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class BaseFragment extends Fragment{
+import com.example.asus.threemodel.model.bean.BaseBean;
+
+public abstract class BaseFragment<T extends BaseBean> extends Fragment{
 
     private View view;
 
@@ -22,6 +24,8 @@ public abstract class BaseFragment extends Fragment{
     abstract int setChildView();
     abstract void initView();
     abstract void initData();
+    abstract void onSuccess(T t);
+    abstract void onErr(int code, String errMsg);
 
     public View getChildView(){
         return view;

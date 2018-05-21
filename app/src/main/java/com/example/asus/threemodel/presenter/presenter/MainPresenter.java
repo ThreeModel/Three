@@ -1,11 +1,8 @@
 package com.example.asus.threemodel.presenter.presenter;
 
-import android.util.Log;
-
-import com.example.asus.threemodel.model.bean.ResultBean;
 import com.example.asus.threemodel.presenter.inter.IMainPresenter;
 import com.example.asus.threemodel.view.inter.IMainView;
-import com.google.gson.Gson;
+
 
 public class MainPresenter extends BasePresenter<IMainView> implements IMainPresenter {
 
