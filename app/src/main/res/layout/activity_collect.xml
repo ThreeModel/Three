@@ -28,6 +28,7 @@
             android:layout_centerHorizontal="true"
             />
         <TextView
+            android:id="@+id/shoucang_clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="清除"
@@ -39,6 +40,7 @@
             />
     </RelativeLayout>
     <GridView
+        android:id="@+id/shouchang_view"
         android:layout_below="@id/my_shoucang"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></GridView>

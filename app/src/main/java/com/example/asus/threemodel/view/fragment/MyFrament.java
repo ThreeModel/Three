@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.asus.threemodel.R;
+import com.example.asus.threemodel.view.activity.CollectActivity;
 import com.example.asus.threemodel.view.activity.FitActivity;
 
 public class MyFrament extends Fragment implements View.OnClickListener{
@@ -67,7 +68,9 @@ public class MyFrament extends Fragment implements View.OnClickListener{
                 break;
             case R.id.my_shezhi_shoucang:
                //点击跳转，跳转到一个收藏界面
-
+                Toast.makeText(getContext(), "aaaaa",Toast.LENGTH_LONG).show();
+Intent intent1=new Intent(getActivity(),CollectActivity.class);
+startActivity(intent1);
                 break;
             case R.id.my_shezhi_zhuti:
                 Toast.makeText(getContext(), "主题",Toast.LENGTH_LONG).show();
