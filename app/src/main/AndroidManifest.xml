@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.asus.threemodel">
 
+
+    
     <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:name=".application.MyApplication"
@@ -22,6 +25,9 @@
         <activity android:name=".view.activity.BaseActivity" />
         <activity android:name=".view.activity.FitActivity" />
         <activity android:name=".view.activity.VideoPlayActivity"></activity>
+        <activity android:name=".view.activity.CollectActivity" />
+        <activity android:name=".view.activity.BoonActivity" />
+
     </application>
 
 </manifest>

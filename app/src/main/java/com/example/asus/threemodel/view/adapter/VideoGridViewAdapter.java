@@ -23,6 +23,7 @@ public class VideoGridViewAdapter extends BaseAdapter {
         this.childList = childList;
     }
 
+
     @Override
     public int getCount() {
         return childList.size();

@@ -6,9 +6,10 @@
 
     <RelativeLayout
         android:id="@+id/recycler_r1"
-        android:layout_width="339dp"
+        android:layout_width="344dp"
         android:layout_height="160dp"
         android:layout_centerInParent="true"
+        android:padding="10dp"
         android:background="#70FFFFFF">
 
 
@@ -20,8 +21,6 @@
             fresco:placeholderImage="@mipmap/default_320"
             android:scaleType="centerCrop"
             android:src="@mipmap/my_bg_colorful"/>
-
-
 
     </RelativeLayout>
 

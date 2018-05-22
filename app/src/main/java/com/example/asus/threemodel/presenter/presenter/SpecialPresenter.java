@@ -4,7 +4,7 @@ import com.example.asus.threemodel.model.model.BaseModel;
 import com.example.asus.threemodel.presenter.inter.IMainPresenter;
 import com.example.asus.threemodel.view.inter.ISpecialView;
 
-public class SpecialPresenter extends BasePresenter implements IMainPresenter{
+public class SpecialPresenter extends BasePresenter implements IMainPresenter {
     private final ISpecialView iSpecialView;
 
     public SpecialPresenter(ISpecialView iSpecialView) {

@@ -16,6 +16,32 @@
         android:textSize="18dp"
         android:textStyle="bold" />
 
+    <ImageView
+        android:id="@+id/base_back"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:src="@drawable/back" />
+
+    <TextView
+        android:id="@+id/base_caler"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:text="清除"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/base_collert"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/collection" />
+
+
     <FrameLayout
         android:id="@+id/base_frameLayout"
         android:layout_width="match_parent"

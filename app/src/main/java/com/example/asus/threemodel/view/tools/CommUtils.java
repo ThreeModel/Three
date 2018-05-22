@@ -5,10 +5,46 @@ import android.content.SharedPreferences;
 
 import com.example.asus.threemodel.R;
 import com.example.asus.threemodel.application.MyApplication;
+import com.example.asus.threemodel.model.bean.VideoBean;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommUtils {
     private static final String TAG = "SPL";
     private static SharedPreferences sharedPreferences;
+    //  收藏的电影
+    private static List<VideoBean.RetBean.ListBean.ChildListBean> mCollects = new ArrayList<>();
+
+    /**
+     * 添加电影到收藏列表
+     * @param childListBean
+     */
+    public static void addCollectVideo(VideoBean.RetBean.ListBean.ChildListBean childListBean){
+        mCollects.add(childListBean);
+    }
+
+    /**
+     * 获取电影收藏列表
+     * @return
+     */
+    public static List<VideoBean.RetBean.ListBean.ChildListBean> getCollectVideo(){
+        if(mCollects != null){
+            return mCollects;
+        }
+        return null;
+    }
+
+
+    /**
+     * 清除全部
+     * @return
+     */
+    public static boolean calerCollert(){
+        boolean isSuccess =  mCollects.removeAll(mCollects);
+        return isSuccess;
+    }
+
 
 
     public static void saveString(String flag, String str) {
