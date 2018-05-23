@@ -34,9 +34,7 @@
         <activity android:name=".view.activity.VideoPlayActivity"></activity>
         <activity android:name=".view.activity.CollectActivity" />
         <activity android:name=".view.activity.BoonActivity" />
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="5b04c150a40fa37bb5000037" />
+
     </application>
 
 </manifest>
