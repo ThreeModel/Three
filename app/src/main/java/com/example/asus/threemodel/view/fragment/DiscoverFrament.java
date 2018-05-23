@@ -11,9 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckedTextView;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.asus.threemodel.R;
 import com.example.asus.threemodel.view.costom.SwipeFlingAdapterView;

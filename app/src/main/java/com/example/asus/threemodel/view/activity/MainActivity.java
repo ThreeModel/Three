@@ -26,6 +26,8 @@ import com.hjm.bottomtabbar.BottomTabBar;
 import com.jaeger.library.StatusBarUtil;
 import com.makeramen.roundedimageview.RoundedImageView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +50,29 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
         photoText = findViewById(R.id.photo_text);
         photoListView = findViewById(R.id.photo_listview);
         guanyu = findViewById(R.id.guanyu);
+        guanyu.setOnClickListener(new View.OnClickListener() {
+
+            private AlertDialog alertDialog;
+            private TextView text_guanbi;
+
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                View view = View.inflate(MainActivity.this, R.layout.shezhi_guanyu, null);
+                builder.setView(view);
+                text_guanbi = view.findViewById(R.id.text_guanbi);
+                text_guanbi.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                        Toast.makeText(MainActivity.this, "关于",Toast.LENGTH_LONG).show();
+                    }
+                });
+                alertDialog = builder.create();
+                alertDialog.show();
+
+            }
+        });
         zhuti = findViewById(R.id.zhuti);
         zhuti.setOnClickListener(new View.OnClickListener() {
             @Override
