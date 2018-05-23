@@ -219,7 +219,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
         } else if ("建议反馈".equals(sideTexts.get(position))) {
             Toast.makeText(MainActivity.this, "开发中，敬请期待", Toast.LENGTH_SHORT).show();
         } else if ("设置".equals(sideTexts.get(position))) {
-            Toast.makeText(MainActivity.this, "开发中，敬请期待", Toast.LENGTH_SHORT).show();
+
+            //点击跳转到设置界面
+            intent.setClass(this,FitActivity.class);
+            startActivity(intent);
+
         }
     }
 }
