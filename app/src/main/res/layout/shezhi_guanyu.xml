@@ -59,6 +59,7 @@
         android:layout_marginTop="123dp"
         android:text="Github:"
         android:layout_alignLeft="@+id/image_my_user" />
+
     <TextView
         android:id="@+id/text_jinou"
         android:textColor="#f00"

@@ -1,29 +1,35 @@
 package com.example.asus.threemodel.view.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.asus.threemodel.R;
+import com.example.asus.threemodel.application.CommonUtil;
 import com.example.asus.threemodel.presenter.presenter.MainPresenter;
 import com.example.asus.threemodel.view.adapter.SideAdapter;
+import com.example.asus.threemodel.view.adapter.ThemeAdapter;
 import com.example.asus.threemodel.view.fragment.ChoicenessFragment;
 import com.example.asus.threemodel.view.fragment.DiscoverFrament;
 import com.example.asus.threemodel.view.fragment.MyFrament;
 import com.example.asus.threemodel.view.fragment.SpecialFragment;
 import com.example.asus.threemodel.view.inter.IMainView;
 import com.hjm.bottomtabbar.BottomTabBar;
+import com.jaeger.library.StatusBarUtil;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity<MainPresenter> implements IMainView, AdapterView.OnItemClickListener {
+public class MainActivity extends BaseActivity<MainPresenter> implements IMainView, AdapterView.OnItemClickListener,View.OnClickListener {
 
 
     private List<Integer> sideImgs = new ArrayList<>();
@@ -33,6 +39,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
     private ListView photoListView;
     private LinearLayout guanyu;
     private LinearLayout zhuti;
+    private View inflate;
 
     @Override
     void initView() {
@@ -42,6 +49,12 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
         photoListView = findViewById(R.id.photo_listview);
         guanyu = findViewById(R.id.guanyu);
         zhuti = findViewById(R.id.zhuti);
+        zhuti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSelectThemes();
+            }
+        });
         back.setVisibility(View.GONE); // 基类中的返回键   在主页面不需要  所以设置成不可见状态
         BottomTabBar btb = findViewById(R.id.btb);
         btb.init(getSupportFragmentManager())
@@ -60,6 +73,62 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                         tv.setText(name);
                     }
                 });
+    }
+    public ArrayList<Integer> getColorData() {
+        ArrayList<Integer> integers = new ArrayList<>();
+        integers.add(R.color.colorBluePrimaryDark);
+        integers.add(R.color.colorAccent);
+        integers.add(R.color.colorTealPrimary);
+        integers.add(R.color.colorDeepOrangePrimary);
+        integers.add(R.color.colorRedPrimaryCenter);
+        integers.add(R.color.colorRedPrimary);
+        integers.add(R.color.colorPrimaryDark);
+        integers.add(R.color.colorPrimary);
+        integers.add(R.color.colorLimePrimaryCenter);
+        integers.add(R.color.colorOrangePrimary);
+        integers.add(R.color.colorSecondText);
+        integers.add(R.color.colorLimePrimaryDark);
+        integers.add(R.color.colorDeepPurplePrimaryCenter);
+        integers.add(R.color.colorHint);
+        integers.add(R.color.colorDeepOrangePrimaryCenter);
+        integers.add(R.color.colorSecondText);
+
+        return integers;
+    }
+
+    private int clickPosition = 0;
+
+    public void showSelectThemes() {
+        clickPosition = 0;
+        final ArrayList<Integer> colorData = getColorData();
+        View view = View.inflate(this, R.layout.theme_view, null);
+        GridView gridView = view.findViewById(R.id.theme_gridView);
+        final ThemeAdapter themeAdapter = new ThemeAdapter(getColorData(), 0, this);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                themeAdapter.setPosition(position);
+                clickPosition = position;
+                themeAdapter.notifyDataSetChanged();
+            }
+        });
+        gridView.setAdapter(themeAdapter);
+
+        new AlertDialog.Builder(this)
+                .setView(view)
+                .setPositiveButton("取消", null)
+                .setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int color = getResources().getColor(colorData.get(clickPosition));
+                        StatusBarUtil.setColor(MainActivity.this, color);
+                        if (inflate != null)
+                            inflate.setBackgroundColor(color);
+                        CommonUtil.saveColorValue(color);
+                    }
+                })
+                .create()
+                .show();
     }
 
 
@@ -92,7 +161,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
 
     @Override
     View getChildView() {
-        return View.inflate(this, R.layout.activity_main, null);
+        inflate = View.inflate(this, R.layout.activity_main, null);
+        return inflate;
     }
 
     @Override
