@@ -20,6 +20,7 @@ public class FitActivity extends AppCompatActivity implements View.OnClickListen
     private RelativeLayout my_shezhi_tui_guanyu;
     private RelativeLayout my_shezhi_jianyi;
     private TextView text_guanbi;
+    private AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,11 +83,11 @@ guanyu();
         text_guanbi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                alertDialog.dismiss();
                 Toast.makeText(FitActivity.this, "关于",Toast.LENGTH_LONG).show();
             }
         });
-        AlertDialog alertDialog = builder.create();
+        alertDialog = builder.create();
                 alertDialog.show();
 
     }
