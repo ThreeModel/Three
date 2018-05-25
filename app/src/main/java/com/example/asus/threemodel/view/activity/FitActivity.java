@@ -60,7 +60,6 @@ Toast.makeText(this, "清理缓存",Toast.LENGTH_LONG).show();
 guanyu();
                 break;
             case R.id.my_shezhi_jianyi :
-
                 //建议反馈
                 jianyi();
                 break;

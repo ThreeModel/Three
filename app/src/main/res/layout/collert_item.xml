@@ -6,6 +6,7 @@
     <ImageView
         android:id="@+id/collert_item_img"
         android:layout_centerInParent="true"
+        android:padding="10dp"
         android:layout_width="200dp"
         android:layout_height="200dp" />
 

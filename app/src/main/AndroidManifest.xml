@@ -15,19 +15,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".view.activity.MainActivity">
+        <activity android:name="com.example.asus.threemodel.view.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.BaseActivity" />
-        <activity android:name=".view.activity.FitActivity" />
-        <activity android:name=".view.activity.VideoPlayActivity"></activity>
-        <activity android:name=".view.activity.CollectActivity" />
-        <activity android:name=".view.activity.BoonActivity" />
-
+        <activity android:name="com.example.asus.threemodel.view.activity.BaseActivity" />
+        <activity android:name="com.example.asus.threemodel.view.activity.FitActivity" />
+        <activity android:name="com.example.asus.threemodel.view.activity.VideoPlayActivity"></activity>
+        <activity android:name="com.example.asus.threemodel.view.activity.CollectActivity" />
+        <activity android:name="com.example.asus.threemodel.view.activity.BoonActivity" />
+        <activity android:name="com.example.asus.threemodel.view.activity.MoreActivity"/>
     </application>
 
 </manifest>
