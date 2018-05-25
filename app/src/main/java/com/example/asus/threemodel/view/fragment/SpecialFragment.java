@@ -15,6 +15,7 @@ import com.example.asus.threemodel.model.bean.VideoBean;
 import com.example.asus.threemodel.presenter.presenter.MainPresenter;
 import com.example.asus.threemodel.view.adapter.SpecialAdapter;
 import com.example.asus.threemodel.view.inter.IMainView;
+import com.example.asus.threemodel.view.tools.BaseUrl;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -39,7 +40,7 @@ public class SpecialFragment extends Fragment implements IMainView {
 
     private void initData() {
         MainPresenter persenter = new MainPresenter(this);
-        persenter.getJson("front/homePageApi/homePage.do");
+        persenter.getJson(BaseUrl.BASEURL+"front/homePageApi/homePage.do");
     }
 
     @Override
