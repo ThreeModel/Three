@@ -6,41 +6,54 @@
     android:background="@drawable/deep_orange_background"
     tools:context=".view.activity.BaseActivity">
 
-    <TextView
+    <RelativeLayout
         android:id="@+id/base_title"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="精选"
-        android:textColor="#fff"
-        android:textSize="18dp"
-        android:textStyle="bold" />
+        android:layout_height="60dp">
 
-    <ImageView
-        android:id="@+id/base_back"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:src="@drawable/back" />
+        <TextView
+            android:id="@+id/base_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="精选"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/base_caler"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:gravity="center_vertical"
-        android:text="清除"
-        android:textColor="#fff"
-        android:textSize="18dp"
-        android:visibility="gone" />
+        <ImageView
+            android:id="@+id/base_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/back" />
 
-    <ImageView
-        android:id="@+id/base_collert"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:visibility="gone"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/collection" />
+        <TextView
+            android:id="@+id/base_caler"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="清除"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:visibility="gone" />
 
+        <ImageView
+            android:id="@+id/base_collert"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/collection"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+
+    /* 内容视图 */
 
     <FrameLayout
         android:id="@+id/base_frameLayout"

@@ -46,10 +46,10 @@ public class DiscoverFrament extends Fragment implements SwipeFlingAdapterView.o
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = View.inflate(getContext(), R.layout.discover_fragment, null);
         initView();
-
         loadData();
         return view;
     }
+
     private void initView() {
         DisplayMetrics dm = getResources().getDisplayMetrics();
         float density = dm.density;

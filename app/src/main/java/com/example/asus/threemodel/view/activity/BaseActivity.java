@@ -5,27 +5,33 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.asus.threemodel.R;
 import com.example.asus.threemodel.presenter.presenter.BasePresenter;
 import com.example.asus.threemodel.view.inter.IBaseView;
 import com.example.asus.threemodel.view.tools.CommUtils;
+import com.gyf.barlibrary.ImmersionBar;
 
 public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements IBaseView, View.OnClickListener {
 
     private P presenter;
     private FrameLayout fl;
 
-    public TextView tv;  //标题名称
+    public RelativeLayout base_title;  //标题名称
     public ImageView back; //返回键
     public TextView caler;  //清空收藏键
     public ImageView collert; //收藏按钮
+    public TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
+        setContentView(getBaseActivityView());
+        getSupportActionBar().hide();
+        ImmersionBar.with(this).init();
         initSelfView();
         presenter = setPresenter();
         if (presenter != null) {
@@ -34,6 +40,14 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         initView();
         initData();
     }
+
+    /**
+     * @return
+     */
+    public View getBaseActivityView() {
+        return View.inflate(this, R.layout.activity_base, null);
+    }
+
 
     public P getPresenter() {
         return presenter;
@@ -51,11 +65,13 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     private void initSelfView() {
         fl = findViewById(R.id.base_frameLayout);
         fl.addView(getChildView());
-        tv = findViewById(R.id.base_title);
+        base_title = findViewById(R.id.base_title);
+        tv = findViewById(R.id.base_text);
         back = findViewById(R.id.base_back);
         back.setOnClickListener(this);
         caler = findViewById(R.id.base_caler);
         collert = findViewById(R.id.base_collert);
+        collert.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +80,10 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
             case R.id.base_back:
                 finish();
                 CommUtils.backAnim(BaseActivity.this);
+                break;
+            case R.id.base_collert:
+                // 收藏按钮
+                Toast.makeText(this, "收藏", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -74,7 +94,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         if (presenter != null) {
             presenter.detachView();
         }
-
+        ImmersionBar.with(this).destroy(); //必须调用该方法，防止内存泄漏
     }
 
 }

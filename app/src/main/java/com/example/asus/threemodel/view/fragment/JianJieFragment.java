@@ -98,6 +98,7 @@ public class JianJieFragment extends Fragment implements IMainView {
                 intent.putExtra("loadUrl", childListBeans.get(position).getLoadURL().toString());
                 intent.putExtra("shareUrl", childListBeans.get(position).getShareURL().toString());
                 intent.putExtra("slt", childListBeans.get(position).getPic().toString());
+                intent.putExtra("video_ID",childListBeans.get(position).getDataId().toString());
                 getActivity().startActivity(intent);
                 getActivity().finish();
             }

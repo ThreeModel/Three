@@ -93,7 +93,6 @@ public class SpecialAdapter extends BaseAdapter {
 
             }
         });
-
         return convertView;
     }
 

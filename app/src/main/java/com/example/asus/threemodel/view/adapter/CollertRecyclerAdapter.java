@@ -42,6 +42,7 @@ public class CollertRecyclerAdapter extends RecyclerView.Adapter<CollertCollertV
                 intent.putExtra("loadUrl",childListBeans.get(position).getLoadURL().toString());
                 intent.putExtra("shareUrl",childListBeans.get(position).getShareURL().toString());
                 intent.putExtra("slt",childListBeans.get(position).getPic().toString());
+                intent.putExtra("video_ID",childListBeans.get(position).getDataId().toString());
                 context.startActivity(intent);
             }
         });

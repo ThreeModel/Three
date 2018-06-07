@@ -14,24 +14,21 @@ import android.widget.Toast;
 
 import com.example.asus.threemodel.R;
 import com.example.asus.threemodel.application.CommonUtil;
-import com.example.asus.threemodel.presenter.presenter.MainPresenter;
+import com.example.asus.threemodel.presenter.presenter.BasePresenter;
 import com.example.asus.threemodel.view.adapter.SideAdapter;
 import com.example.asus.threemodel.view.adapter.ThemeAdapter;
 import com.example.asus.threemodel.view.fragment.ChoicenessFragment;
 import com.example.asus.threemodel.view.fragment.DiscoverFrament;
 import com.example.asus.threemodel.view.fragment.MyFrament;
 import com.example.asus.threemodel.view.fragment.SpecialFragment;
-import com.example.asus.threemodel.view.inter.IMainView;
+import com.example.asus.threemodel.view.tools.ChenJinUtil;
 import com.hjm.bottomtabbar.BottomTabBar;
-import com.jaeger.library.StatusBarUtil;
 import com.makeramen.roundedimageview.RoundedImageView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity<MainPresenter> implements IMainView, AdapterView.OnItemClickListener,View.OnClickListener {
+public class MainActivity extends BaseActivity implements  AdapterView.OnItemClickListener, View.OnClickListener {
 
 
     private List<Integer> sideImgs = new ArrayList<>();
@@ -65,7 +62,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                     @Override
                     public void onClick(View v) {
                         alertDialog.dismiss();
-                        Toast.makeText(MainActivity.this, "关于",Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "关于", Toast.LENGTH_LONG).show();
                     }
                 });
                 alertDialog = builder.create();
@@ -80,6 +77,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                 showSelectThemes();
             }
         });
+
         back.setVisibility(View.GONE); // 基类中的返回键   在主页面不需要  所以设置成不可见状态
         BottomTabBar btb = findViewById(R.id.btb);
         btb.init(getSupportFragmentManager())
@@ -99,6 +97,13 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                     }
                 });
     }
+
+
+    /**
+     * 获取颜色数据
+     *
+     * @return
+     */
     public ArrayList<Integer> getColorData() {
         ArrayList<Integer> integers = new ArrayList<>();
         integers.add(R.color.colorBluePrimaryDark);
@@ -117,7 +122,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
         integers.add(R.color.colorHint);
         integers.add(R.color.colorDeepOrangePrimaryCenter);
         integers.add(R.color.colorSecondText);
-
         return integers;
     }
 
@@ -138,7 +142,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
             }
         });
         gridView.setAdapter(themeAdapter);
-
         new AlertDialog.Builder(this)
                 .setView(view)
                 .setPositiveButton("取消", null)
@@ -146,7 +149,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         int color = getResources().getColor(colorData.get(clickPosition));
-                        StatusBarUtil.setColor(MainActivity.this, color);
+                        tv.setBackgroundColor(color);
+                        ChenJinUtil.setStatusBarColor(MainActivity.this, color);
                         if (inflate != null)
                             inflate.setBackgroundColor(color);
                         CommonUtil.saveColorValue(color);
@@ -191,16 +195,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
     }
 
     @Override
-    MainPresenter setPresenter() {
-        return new MainPresenter(this);
-    }
-
-    @Override
-    public void onSuccess(String mainBean) {
-    }
-
-    @Override
-    public void onErr(int code, String errMsg) {
+    BasePresenter setPresenter() {
+        return null;
     }
 
     @Override
@@ -219,9 +215,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
         } else if ("建议反馈".equals(sideTexts.get(position))) {
             Toast.makeText(MainActivity.this, "开发中，敬请期待", Toast.LENGTH_SHORT).show();
         } else if ("设置".equals(sideTexts.get(position))) {
-
             //点击跳转到设置界面
-            intent.setClass(this,FitActivity.class);
+            intent.setClass(this, FitActivity.class);
             startActivity(intent);
 
         }

@@ -16,6 +16,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    /* 多渠道打包到指定平台 */
+    flavorDimensions "default"
+    productFlavors {
+        kuan {
+            dimension "default"
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "kuan"]
+        }
+        qh360 {
+            dimension "default"
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qh360"]
+        }
+        baidu {
+            dimension "default"
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+        }
+        wandoujia {
+            dimension "default"
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+        }
+    }
 }
 
 dependencies {
@@ -48,5 +69,7 @@ dependencies {
     // 修改状态栏颜色
     implementation 'com.jaeger.statusbarutil:library:1.5.1'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
+    //沉浸式
+    implementation 'com.gyf.barlibrary:barlibrary:2.3.0'
 
 }

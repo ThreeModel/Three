@@ -91,6 +91,7 @@ public class ChoicenessFragment extends Fragment implements View.OnClickListener
                 intent.putExtra("loadUrl", recyclers.get(position).getLoadURL().toString());
                 intent.putExtra("shareUrl", recyclers.get(position).getShareURL().toString());
                 intent.putExtra("slt", recyclers.get(position).getPic().toString());
+                intent.putExtra("video_ID",recyclers.get(position).getDataId().toString());
                 startActivity(intent);
             }
         });
@@ -172,6 +173,7 @@ public class ChoicenessFragment extends Fragment implements View.OnClickListener
                 intent.putExtra("loadUrl", recyclers.get(position).getLoadURL().toString());
                 intent.putExtra("shareUrl", recyclers.get(position).getShareURL().toString());
                 intent.putExtra("slt", recyclers.get(position).getPic().toString());
+                intent.putExtra("video_ID",recyclers.get(position).getDataId().toString());
                 startActivity(intent);
             }
         });

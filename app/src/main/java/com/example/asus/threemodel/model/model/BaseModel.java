@@ -5,7 +5,7 @@ import com.vise.xsnow.http.ViseHttp;
 import com.vise.xsnow.http.callback.ACallback;
 
 public class BaseModel {
-
+    
     public void getJson(String url, final IMainPresenter iMainPresenter) {
 
         ViseHttp.GET().suffixUrl(url).request(new ACallback<String>() {
@@ -16,7 +16,7 @@ public class BaseModel {
 
             @Override
             public void onFail(int errCode, String errMsg) {
-                iMainPresenter.onErr(errCode,errMsg);
+                iMainPresenter.onErr(errCode, errMsg);
             }
         });
     }

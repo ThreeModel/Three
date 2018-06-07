@@ -15,6 +15,7 @@ import com.dl7.player.media.IjkPlayerView;
 import com.example.asus.threemodel.R;
 import com.example.asus.threemodel.presenter.presenter.BasePresenter;
 import com.example.asus.threemodel.view.adapter.Main2VPAdapter;
+import com.example.asus.threemodel.view.costom.SlideLeftFinsh;
 import com.example.asus.threemodel.view.fragment.JianJieFragment;
 import com.example.asus.threemodel.view.fragment.PingLunFragment;
 import com.example.asus.threemodel.view.inter.TitleBarCallBack;
@@ -22,7 +23,7 @@ import com.example.asus.threemodel.view.inter.TitleBarCallBack;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VideoPlayActivity extends BaseActivity{
+public class VideoPlayActivity extends BaseActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -33,23 +34,27 @@ public class VideoPlayActivity extends BaseActivity{
     private String slt;
     private IjkPlayerView ijkPlayerView;
     private Uri mUri;
+    private String video_id;
 
     @Override
     void initView() {
+
+        SlideLeftFinsh slideLeftFinsh = new SlideLeftFinsh(VideoPlayActivity.this);
+        slideLeftFinsh.bind();
+
+        collert.setVisibility(View.VISIBLE);
         tabLayout = findViewById(R.id.video_tab);
         viewPager = findViewById(R.id.video_viewpager);
         Intent intent = getIntent();
         shareUrl = intent.getStringExtra("shareUrl");
         loadUrl = intent.getStringExtra("loadUrl");
         slt = intent.getStringExtra("slt");
-        if(!TextUtils.isEmpty(shareUrl) && !TextUtils.isEmpty(loadUrl)){
+        video_id = intent.getStringExtra("video_ID");
+        if (!TextUtils.isEmpty(shareUrl) && !TextUtils.isEmpty(loadUrl)) {
             initIJK();
         }
         return;
     }
-
-
-
 
     /**
      * 设置IJK播放器
@@ -73,6 +78,8 @@ public class VideoPlayActivity extends BaseActivity{
         fragments.add(pingLunFragment);
         tabs.add("简介");
         tabs.add("评论");
+
+
         Main2VPAdapter adapter = new Main2VPAdapter(getSupportFragmentManager(), VideoPlayActivity.this, fragments, tabs);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -82,13 +89,17 @@ public class VideoPlayActivity extends BaseActivity{
         Bundle bundle = new Bundle();
         bundle.putString("loagUrl", loadUrl);
         jianJieFragment.setArguments(bundle);
-        pingLunFragment.setArguments(bundle);
+
         jianJieFragment.setTitleBarString(new TitleBarCallBack() {
             @Override
             public void onTitleDataCallBackSuccess(String titleStr) {
                 tv.setText(titleStr);
             }
         });
+
+        Bundle bundle1 = new Bundle();
+        bundle1.putString("video_ID", video_id);
+        pingLunFragment.setArguments(bundle1);
     }
 
     @Override

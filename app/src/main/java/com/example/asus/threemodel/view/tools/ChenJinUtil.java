@@ -29,7 +29,7 @@ public class ChenJinUtil {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0
                 activity.getWindow().setStatusBarColor(color);
                 // 底部导航栏颜色也可以由系统设置
-                //activity.getWindow().setNavigationBarColor(color);
+//                activity.getWindow().setNavigationBarColor(color);
             } else {
                 setKitKatStatusBarColor(activity, color);
             }

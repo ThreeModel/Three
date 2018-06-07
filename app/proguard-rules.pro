@@ -35,3 +35,4 @@
 
 #netexpand
 -keep class com.vise.netexpand.mode.ApiResult { *; }
+-keep class com.example.asus.threemodel.view.activity{*;}
